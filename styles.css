@@ -1,0 +1,508 @@
+/* -------------------------------------------------
+   GLOBAL RESET & TYPOGRAPHY
+--------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  line-height: 1.6;
+  position: relative;
+  padding-bottom: 30px; /* extra spacing at bottom */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* -------------------------------------------------
+   HOME SCREEN HEADER
+--------------------------------------------------- */
+.home-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #e65c00, #003366);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home-header h1 {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* Enhanced Menu Styling */
+.home-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.home-menu a {
+  background: rgba(255, 255, 255, 0.85);
+  color: #003366;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-menu a img {
+  width: 30px;
+  height: auto;
+  display: block;
+}
+
+.home-menu a:hover,
+.home-menu a:focus {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 768px) {
+  .home-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .home-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .home-menu {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .home-menu a {
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+  .home-menu a img {
+    width: 20px;
+  }
+}
+
+/* -------------------------------------------------
+   HOME SCREEN MAIN SECTION WITH GRADIENT ANIMATION
+--------------------------------------------------- */
+.home-screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(270deg, #8e44ad, #003366, #6ddc9c);
+  background-size: 600% 600%;
+  animation: gradientAnimation 16s ease infinite;
+  color: #fff;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.home-screen > h1 {
+  font-size: 48px;
+  margin: 20px 0;
+  animation: fadeInDown 1s ease-out;
+}
+
+/* -------------------------------------------------
+   CHAPTERS GRID (Content Container)
+--------------------------------------------------- */
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: #003366;
+}
+
+/* -------------------------------------------------
+   CHAPTER BUTTONS
+--------------------------------------------------- */
+.chapter-btn {
+  background: #003366;
+  color: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-btn:hover {
+  background: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* -------------------------------------------------
+   SIGNATURE / FOOTER
+--------------------------------------------------- */
+.signature {
+  margin-top: 30px;
+  font-family: 'Lobster', cursive;
+  font-size: 2rem;
+  color: #e65c9c;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* -------------------------------------------------
+   FADE IN ANIMATION
+--------------------------------------------------- */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------------------
+   RESPONSIVE ADJUSTMENTS FOR HOME SCREEN
+--------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .home-header h1 {
+    font-size: 2rem;
+  }
+  .home-screen > h1 {
+    font-size: 36px;
+  }
+  .chapters-grid {
+    padding: 20px;
+    margin: 20px auto;
+  }
+  .chapter-btn {
+    font-size: 1em;
+    padding: 15px;
+  }
+}
+
+/* -------------------------------------------------
+   EXAM CONTAINER
+--------------------------------------------------- */
+#examContainer {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 30px;
+  max-width: 100%;
+  display: none;
+  position: relative;
+}
+
+/* -------------------------------------------------
+   PRE-EXAM SCREEN (Full-Width Open Layout)
+--------------------------------------------------- */
+#preExamScreen {
+  background: #fff;
+  padding: 20px 40px;
+  text-align: center;
+  color: #333;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+#preExamScreen h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #003366;
+}
+
+#preExamScreen p {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+/* Center and Increase the Agreement Section */
+#preExamScreen label {
+  display: block;
+  margin: 16px auto;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Help Tips Styling */
+.help-tips {
+  list-style-type: disc;
+  margin: 20px 0;
+  padding-left: 20px;
+  text-align: left;
+  color: #333;
+}
+.help-tips li {
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+/* Pre-Exam Buttons - Back to Left, Start Exam to Right */
+.pre-exam-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+.pre-exam-buttons button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.pre-exam-buttons button.back-btn {
+  background-color: #e74c3c;
+  color: #fff;
+  text-align: left;
+}
+.pre-exam-buttons button.start-btn {
+  background-color: #6ddc9c;
+  color: #fff;
+  text-align: right;
+}
+
+/* Hide exam content until exam is started */
+#examContent {
+  display: none;
+}
+
+/* -------------------------------------------------
+   EXAM HEADER & PROGRESS BAR
+--------------------------------------------------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.timer {
+  color: #e74c3c;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.status {
+  color: #e74c3c;
+}
+
+.progress-container {
+  background: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 15px;
+  background: #3498db;
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+}
+
+.paper-title {
+  color: #fff;
+  font-size: 1.4em;
+  margin: 20px 0;
+  padding: 15px;
+  text-align: center;
+  background-color: #3498db;
+}
+
+.question-container {
+  margin: 30px 0;
+}
+
+.question-text {
+  color: #34495e;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+.option {
+  cursor: pointer;
+  display: block;
+  margin: 10px 0;
+  padding: 5px 5px 5px 40px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.option input {
+  cursor: pointer;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  width: 0;
+}
+
+.checkmark {
+  background-color: #fff;
+  border: 2px solid #3498db;
+  border-radius: 50%;
+  height: 20px;
+  left: 15px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+}
+
+.option.selected .checkmark {
+  background-color: #3498db;
+}
+
+/* -------------------------------------------------
+   NAVIGATION BUTTONS IN EXAM SECTION
+--------------------------------------------------- */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.nav-btn {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 12px 20px;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.nav-btn.save-next-btn {
+  background-color: #3498db;
+}
+
+.nav-btn.skip-btn {
+  background-color: silver;
+}
+
+.result-container .nav-btn {
+  background-color: #6ddc9c;
+}
+
+.nav-btn:hover {
+  opacity: 0.9;
+}
+
+/* -------------------------------------------------
+   RESULT CONTAINER & CHART
+--------------------------------------------------- */
+.result-container {
+  display: none;
+  padding: 30px;
+  text-align: center;
+  background: #1e1e2f;
+  color: #ffffff;
+}
+
+.main-heading {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.result-image {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.result-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.result-score {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.result-status {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#resultChart {
+  max-width: 400px;
+  width: 100%;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.question-review {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 15px 0;
+  padding: 10px;
+  text-align: left;
+  background: #ffffff;
+  color: #000000;
+}
+
+.question-review p:nth-child(2) {
+  color: red;
+}
+
+.question-review p:nth-child(3) {
+  color: #6ddc9c;
+}
+
+/* -------------------------------------------------
+   ANIMATED GRADIENT BACKGROUND (OPTIONAL)
+--------------------------------------------------- */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* -------------------------------------------------
+   RESPONSIVE ADJUSTMENTS FOR MOBILE SCREENS
+--------------------------------------------------- */
+@media only screen and (max-width: 480px) {
+  .result-image {
+    max-width: 90%;
+  }
+  
+  #resultChart {
+    max-width: 90%;
+  }
+}

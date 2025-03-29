@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pathology Exam Portal</title>
+    <!-- Google Fonts for a modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- HOME SCREEN (with header containing horizontal menu) -->
+    <div class="home-screen" id="homeScreen">
+      <!-- Home Screen Header -->
+      <div class="home-header">
+        <h1>MY PATHOLOGY</h1>
+        <nav class="home-menu">
+          <a href="#" onclick="showHomeScreen()">
+            <img src="assets/home.jpeg" alt="Home" />
+          </a>
+          <a href="#" id="aboutOption">
+            <img src="assets/about.jpeg" alt="About" />
+          </a>
+          <a href="#" id="helpOption">
+            <img src="assets/help.jpeg" alt="Help" />
+          </a>
+        </nav>
+      </div>
+      <!-- Chapter Buttons Grid -->
+      <div class="chapters-grid" id="chaptersGrid"></div>
+      <!-- Signature below chapters -->
+      <div class="signature">Dr. Khizar Hayat</div>
+    </div>
+
+    <!-- EXAM CONTAINER -->
+    <div id="examContainer" class="container">
+      <!-- PRE-EXAM SCREEN (instructions + helpful tips) -->
+      <div id="preExamScreen" class="pre-exam-screen">
+        <h2>Exam Instructions</h2>
+        <p>
+          Please read the exam instructions carefully. Confirm that you
+          understand before starting.
+        </p>
+        <ul class="help-tips">
+          <li>
+            <strong>Read instructions carefully:</strong>
+            Confirm you understand the exam instructions by checking the agreement box before starting.
+          </li>
+          <li>
+            <strong>Time is limited:</strong>
+            The exam timer begins when you start, so pace yourself across all questions.
+          </li>
+          <li>
+            <strong>Save and move forward:</strong>
+            Use the “Save & Next” button to lock in your answers. Once saved, you can't return to previous questions.
+          </li>
+          <li>
+            <strong>Skip if unsure:</strong>
+            Use “Skip For Now” for difficult questions. Skipped questions are added to a review queue for later attempt.
+          </li>
+          <li>
+            <strong>Track your progress:</strong>
+            Keep an eye on the progress bar, attempted question count, and the queue for skipped questions.
+          </li>
+          <li>
+            <strong>Review at the end:</strong>
+            After finishing, review any incorrect answers along with the correct options to learn from your mistakes.
+          </li>
+        </ul>
+        <label>
+          <input type="checkbox" id="agreeCheckbox" />
+          I have read and agree to the exam instructions.
+        </label>
+        <div class="pre-exam-buttons">
+          <button class="back-btn" onclick="backToHome()">Back</button>
+          <button class="start-btn" onclick="startExam()">Start Exam</button>
+        </div>
+      </div>
+      <!-- EXAM CONTENT (hidden until exam starts) -->
+      <div id="examContent">
+        <div class="header">
+          <div class="timer">
+            PENDING TIME: <span id="time">00:00:00</span>
+          </div>
+          <div class="status">
+            In Queue: <span id="queue">0</span> | Question Attempted:
+            <span id="attempted">0</span>/<span id="totalQuestions">0</span>
+          </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="paper-title" id="paperTitle"></div>
+        <div class="question-container" id="questionContainer"></div>
+        <div class="navigation-buttons">
+          <button class="nav-btn skip-btn" onclick="skipQuestion()">
+            Skip For Now
+          </button>
+          <button class="nav-btn save-next-btn" onclick="saveAndNext()">
+            Save & Next
+          </button>
+        </div>
+        <div class="result-container" id="resultContainer">
+          <!-- New heading added on top -->
+          <h1 class="main-heading">Exam Result</h1>
+          <!-- This image will change based on the score -->
+          <img
+            src="assets/flower.png"
+            alt="Result Image"
+            class="result-image"
+            id="resultImage"
+          />
+          <h2 class="result-title" id="resultTitle">
+            <!-- Dynamically updated message -->
+          </h2>
+          <p class="result-score">
+            Your score is <span id="score">0</span>/<span id="maxScore">0</span>
+          </p>
+          <p class="result-status" id="resultStatus">PASS</p>
+          <!-- If you still want the chart, keep this canvas -->
+          <canvas id="resultChart"></canvas>
+          <div id="review"></div>
+          <button class="nav-btn" onclick="showHomeScreen()" style="margin-top: 20px;">
+            Return to Home
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link to custom JavaScript -->
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

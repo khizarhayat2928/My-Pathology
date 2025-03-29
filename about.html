@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About - My Pathology</title>
+  <style>
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    /* HOME SCREEN HEADER & RESPONSIVE MENU */
+    .home-header {
+      width: 100%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #e65c00, #003366);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .home-header h1 {
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      margin: 0;
+    }
+    .home-menu {
+      display: flex;
+      gap: 20px;
+    }
+    .home-menu a {
+      background: rgba(255, 255, 255, 0.85);
+      color: #003366;
+      font-size: 1.1em;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .home-menu a img {
+      width: 30px;
+      height: auto;
+      display: block;
+    }
+    .home-menu a:hover,
+    .home-menu a:focus {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    @media screen and (max-width: 768px) {
+      .home-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+      .home-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .home-menu {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .home-menu a {
+        padding: 8px 12px;
+        font-size: 1rem;
+      }
+      .home-menu a img {
+        width: 20px;
+      }
+    }
+    
+    /* Hero Section with Background Image and Overlay */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background: url('https://via.placeholder.com/1920x300.png?text=About+Us') no-repeat center center/cover;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 51, 102, 0.6);
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 1;
+      animation: fadeInDown 1s ease-out;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      margin: 0;
+    }
+    .hero-text p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    /* Main Content Container */
+    .container {
+      max-width: 1200px;
+      margin: -80px auto 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    /* Section Styling */
+    .section {
+      background: #fff;
+      margin: 40px auto;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      animation: slideUp 0.8s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .section h2 {
+      color: #e65c00;
+      margin-top: 0;
+      text-align: center;
+    }
+    .section p {
+      line-height: 1.6;
+      text-align: center;
+    }
+    /* About Sections */
+    .about-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .about-section .content {
+      flex: 1 1 500px;
+      padding: 20px;
+    }
+    .about-section .image {
+      flex: 1 1 400px;
+      padding: 20px;
+    }
+    .about-section .image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .learn-more {
+      display: inline-block;
+      background: #003366;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.3s;
+      margin-top: 20px;
+    }
+    .learn-more:hover {
+      background: #e65c00;
+    }
+    /* Contact Section */
+    .contact-section {
+      text-align: center;
+      padding: 20px 20px; /* Reduced vertical padding for a smaller height */
+      background: linear-gradient(to right, #e65c00, #003366);
+      color: #fff;
+    }
+    .contact-section h2 {
+      margin: 0;
+      font-size: 32px;
+    }
+    .contact-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px; /* Increased gap between icons */
+    }
+    .contact-btn {
+      background: #fff;
+      padding: 8px; /* Slightly smaller padding */
+      border-radius: 50px; /* Rounded background similar to the menu */
+      transition: background 0.3s, transform 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-btn img {
+      width: 30px;
+      height: auto;
+      display: block;
+    }
+    .contact-btn:hover {
+      background: #e65c00;
+      transform: scale(1.05);
+    }
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 36px;
+      }
+      .hero-text p {
+        font-size: 16px;
+      }
+      .section {
+        padding: 20px;
+      }
+      .about-section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HOME SCREEN HEADER & MENU -->
+  <div class="home-screen" id="homeScreen">
+    <div class="home-header">
+      <h1>MY PATHOLOGY</h1>
+      <nav class="home-menu">
+        <a href="index.html">
+          <img src="assets/home.jpeg" alt="Home" />
+        </a>
+        <a href="about.html" id="aboutOption">
+          <img src="assets/about.jpeg" alt="About" />
+        </a>
+        <a href="help.html" id="helpOption">
+          <img src="assets/help.jpeg" alt="Help" />
+        </a>
+      </nav>
+    </div>
+  </div>
+  
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>About Us</h1>
+      <p>Learn more about My Pathology and our vision.</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- About App Section -->
+    <section class="section">
+      <div class="about-section">
+        <div class="content">
+          <h2>About App</h2>
+          <p>
+            "My Pathology" is a comprehensive app for medical students that provides an extensive collection of MCQs covering various pathology topics. Enhance your learning, track your progress, and test your knowledge with our interactive tools.
+          </p>
+          <a href="#" class="learn-more">Learn More</a>
+        </div>
+        <div class="image">
+          <img src="https://med.sohag-univ.edu.eg/main/wp-content/uploads/2020/04/pathology.jpg" alt="About App">
+        </div>
+      </div>
+    </section>
+
+    <!-- About Developer Section -->
+    <section class="section">
+      <div class="about-section">
+        <div class="image">
+          <img src="assets/developer-image.png" alt="About Developer">
+        </div>
+        <div class="content">
+          <h2>About Developer</h2>
+          <p>
+            Khizar is a dedicated developer passionate about creating educational tools for medical students. With expertise in FlutterFlow and a drive to simplify complex subjects, he strives to make pathology accessible for everyone.
+          </p>
+          <a href="#" class="learn-more">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-buttons">
+      <a href="https://wa.me/+923489173223" class="contact-btn">
+        <img src="assets/whatsapp.png" alt="WhatsApp" />
+      </a>
+      <a href="mailto:support@mypathology.com" class="contact-btn">
+        <img src="assets/email.png" alt="Email" />
+      </a>
+      <a href="https://www.facebook.com/khizarhayat844" class="contact-btn">
+        <img src="assets/facebook.png" alt="Facebook" />
+      </a>
+    </div>
+  </section>
+  
+</body>
+</html>
